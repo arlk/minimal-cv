@@ -1,0 +1,151 @@
+\documentclass[9pt]{article}
+\setlength\parindent{0in}
+
+\usepackage{color}
+\usepackage{xparse}
+\usepackage{hyperref}
+\usepackage[paper=letterpaper, margin=0.75in]{geometry}
+\usepackage[
+backend=biber,
+citestyle=numeric,
+maxbibnames=99,
+sorting=none,
+]{biblatex}
+\addbibresource{ref.bib} 
+
+% Remove "In:" in publication list
+\renewbibmacro{in:}{}
+            
+% Highlight URLs
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\definecolor{lightgray}{rgb}{0.5,0.5,0.5}
+\hypersetup{colorlinks,breaklinks,pageanchor=true,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+            
+% Remove page numbers
+\pagenumbering{gobble}
+
+% Sections are constructed using the following environment which indents the left margin
+\def\rsection#1{\IfNoValueF{#1}{\subsection*{#1}}\list{}{\leftmargin 1.5cm}\item[]}
+\let\endrsection=\endlist 
+
+% Blank footnote to call out equal contribution
+\makeatletter
+\def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
+\makeatother
+
+% Biblatex refers to masters as MA, but I have an MS
+\DefineBibliographyStrings{english}{%
+  mathesis = {MS thesis},
+}
+
+% Make bullets in lists smaller
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% CPP macro
+\newcommand \CPP {{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}}
+
+\begin{document}
+
+\begin{rsection}{}
+\textbf{\large Arun Lakshmanan} \\
+Boston, MA 
+\vspace{0.5em} \\
+\textit{E-mail}: \href{mailto:arunlkx@gmail.com}{arunlkx@gmail.com} \\
+\textit{Github}: \href{https://github.com/arlk}{github.com/arlk} \\
+\textit{Linkedin}: \href{https://www.linkedin.com/in/arunlk/}{linkedin.com/in/arunlk} \\
+\textit{Website}: \href{https://www.arunl.com}{www.arunl.com} 
+\end{rsection}
+
+\begin{rsection}{Summary}
+I am currently working as a software engineer at \href{https://optimusride.com}{Optimus Ride}. 
+
+Before joining the industry, I completed my PhD from the University of Illinois, where I was advised by \href{https://naira-hovakimyan.mechse.illinois.edu/}{Prof. Naira Hovakimyan}. Broadly, my research was at the intersection of robotics, control theory, and machine learning, where I focused on safe motion planning for robots under uncertainty. 
+\end{rsection}
+
+\begin{rsection}{Research Interests}
+suboptimal model predictive control; synthesis of stability certificates and constructive control design; robust, adaptive, and nonlinear control theory; sampling-based motion planning; planning with reduced-order models; collision detection.
+\end{rsection}
+
+\begin{rsection}{Education}
+    \textbf{Ph.D. in Mechanical Engineering}, Jun 2021. \\
+    University of Illinois Urbana-Champaign, Urbana, IL. \\ \\
+    \textbf{M.S. in Aerospace Engineering}, Dec 2016. \\
+    University of Illinois Urbana-Champaign, Urbana, IL. \\ \\
+    \textbf{B.Tech. in Mechanical Engineering}, May 2014. \\
+    VIT University, Vellore, India.
+\end{rsection}
+
+\begin{rsection}{Professional Experience}
+    \textbf{Software Engineer} \\
+    \href{https://www.optimusride.com/}{Optimus Ride}, Planning and Controls Team \\
+    \textit{Sep 2021 - present (Boston, MA)}
+    \vspace{0.5em} \\
+    Optimus Ride is an autonomous vehicle startup that operates a fleet of shuttles in geo-fenced areas. I am a member of the Planning and Controls team where I focus development efforts on modern control techniques that provide rigorous safety guarantees for autonomous vehicles.
+    \begin{itemize}
+        \item Produced a design document rigorously detailing the safety requirements and the associated assumptions for an autonomous vehicle from a controls perspective.
+        \item Documented the design of a model predictive control algorithm with computational, stability, and feasibility guarantees.
+    \end{itemize}
+    
+    \textbf{Research Intern} \\
+    \href{https://about.facebook.com/realitylabs/}{Facebook Reality Labs} (FRL), Computational Imaging Team \\
+    \textit{May 2018 - Aug 2018 (Redmond, WA)}
+    \vspace{0.5em} \\
+    The computational imaging team at FRL is responsible for developing next-generation hardware in VR/AR devices. During my internship, I worked on the control design of a device with a mechanical actuation.
+    \begin{itemize}
+        \item Performed system identification for a controlled hardware device.
+        \item Implemented a disturbance observer-based control augmented with a baseline PID control to compensate for disturbances injected into the system while accurately tracking reference signals.
+    \end{itemize}
+    
+    \textbf{Robotics Perception Intern} \\
+    Paracosm (a division of \href{https://occipital.com/}{Occipital}) \\
+    \textit{May 2017 - Jul 2017 (Gainesville, FL)} 
+    \vspace{0.5em} \\
+    Occipital is a company that develops sensors and software to facilitate portable 3D mapping. I worked on planning algorithms for a wheeled robot mounted with the Structure sensor.
+    \begin{itemize}
+        \item Designed a \CPP \ motion planning library and implemented different types of planning algorithms for wheeled robots mounted with Structure sensors.
+        \item Implemented a computationally efficient distance transform of an occupancy map for fast collision checking and distance-based prioritization when planning.
+    \end{itemize}
+    
+    \textbf{Research Intern} \\
+    \href{https://www.qualcomm.com/research}{Qualcomm Research Philadelphia} (QRP) \\
+    \textit{May 2016 - Aug 2016 (Philadelphia, PA)} 
+    \vspace{0.5em} \\
+    QRP (previously KMel Robotics) developed hardware and firmware for aerial vehicles. My internship project involved developing navigation strategies for the Snapdragon quadrotor using the onboard sensors.
+    \begin{itemize}
+        \item Designed an obstacle avoidance controller for the Snapdragon Flight board (since discontinued) for assistive collision prevention using noisy vision-based range information.
+        \item Developed sampling-based motion planning algorithms to generate distance-optimal collision-free paths for the vehicle from a 3D occupancy map.
+    \end{itemize}
+\end{rsection}
+
+\begin{rsection}{Academic Experience}
+    During my M.S. and Ph.D., I was a member of the \href{https://naira.mechse.illinois.edu}{Advanced Controls Research Laboratory} and worked on topics pertaining to theoretical guarantees of stability and robustness for trajectory tracking problems of systems with uncertainties. The following list briefly describes some relevant projects.
+    \begin{itemize}
+        \item \textit{Synthesis of incremental regions of attraction:} A constructive approach to control design for nonlinear systems with stability guarantees by verifying regions around any reference trajectory that are stabilizable. The synthesis procedure involves learning an appropriate Lyapunov function and a verification phase based on interval analysis.
+        \item \textit{Contraction theory-based $\mathcal{L}_1$-adaptive control:}  A robust adaptive control architecture for nonlinear systems to accurately track reference trajectories while compensating for disturbances. The theoretical tracking error can be computed beforehand and used in motion planning applications to find safe paths for the disturbed system.
+        \item \textit{Fast collision detection for trajectories:} A computationally efficient algorithm to compute collisions or the proximity between continuous curves and obstacles in the environment. Depending on the paramterization of the curve, the method may be able to compute these queries within 10-100 microseconds.
+    \end{itemize}
+    Besides research, I was also involved in teaching a \href{https://courses.engr.illinois.edu/cs357/fa2021/}{numerical methods} course in the CS department a number of times (Spring 2015, Fall 2016, Fall 2017). I was also responsible for the software development efforts within the lab as it related to the different robotics platforms and compute resources (e.g. \href{https://www.bitcraze.io/}{Crazyflie quadrotor}, \href{https://docs.px4.io/master/en/complete_vehicles/intel_aero.html}{Intel Aero}, \href{https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/}{Jackal UGV}, \href{https://lambdalabs.com/products/blade}{Lambda GPU server}, etc.). 
+\end{rsection}
+
+\begin{rsection}{Technical Skills}
+    \textit{Languages:} C, \CPP, Julia, Python, Bash. \\
+    \textit{Libraries:} OSQP, qpOASES, Eigen, ForwardDiff, Flux, DifferentialEquations. \\
+    \textit{Tools and environments:} Linux, git, vim, tmux, make, gdb, MATLAB, Simulink, \LaTeX. \\
+    \textit{Published software:} \href{https://github.com/arlk/ConvexBodyProximityQueries.jl}{ConvexBodyProximityQueries}, \href{https://github.com/arlk/CurveProximityQueries.jl}{CurveProximityQueries}, \href{https://github.com/arlk/SafeFeedbackMotionPlanning.jl}{SafeFeedbackMotionPlanning}.
+\end{rsection}
+
+\newpage
+\begin{rsection}{Publications}
+% hack to make biblatex work with indentation
+\begin{itemize} \end{itemize}
+\vspace{-\baselineskip}
+
+\blfootnote{$^\dagger$ Equal contribution}
+
+\nocite{*}
+\printbibliography[heading=none]
+\end{rsection}
+
+\end{document}
